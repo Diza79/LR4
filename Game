@@ -1,0 +1,24 @@
+public class Game {
+    private GameBoard board; // Указатель на игровое поле
+    private Player player; // Указатель на игрока
+
+    public Game(int width, int height, String playerName) {
+        board = new GameBoard(width, height);
+        player = new Player(playerName);
+    }
+
+    public void display() {
+        System.out.println("Игрок: " + player.getName());
+        System.out.println("Игровое поле:");
+        board.displayBoard();
+    }
+
+    public void makeMove(Cell from, Cell to) {
+        GameObject fromObject = board.getCell(from.getX(), from.getY());
+        GameObject toObject = board.getCell(to.getX(), to.getY());
+        
+        // Простая логика перемещения объектов
+        toObject.setType(fromObject.getType());
+        fromObject.setType(' '); // Удаляем объект из старой позиции
+    }
+}
