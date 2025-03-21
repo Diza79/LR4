@@ -21,4 +21,9 @@ public class Game {
         toObject.setType(fromObject.getType());
         fromObject.setType(' '); // Удаляем объект из старой позиции
     }
+
+    public boolean checkWin() {
+        // Проверка на победу (заглушка)
+        return false;
+    }
 }
