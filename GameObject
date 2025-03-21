@@ -11,10 +11,6 @@ public class GameObject {
         return type;
     }
 
-    public void setType(char type) {
-        this.type = type;
-    }
-
     public Cell getPosition() {
         return position;
     }
