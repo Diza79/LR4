@@ -1,11 +1,10 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        final int numGames = 2;
-        Game[] games = new Game[numGames];
-
-        for (int i = 0; i < numGames; i++) {
-            games[i] = new Game(10, 10, "Игрок " + (i + 1));
-            games[i].display();
-        }
+        // Настройки игры
+        GameSettings settings = new GameSettings(10, 10, 15); // Ширина, высота, условие победы
+        Game game = new Game(settings, "Игрок 1");
+        game.play(); // Запуск игры
     }
 }
