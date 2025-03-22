@@ -1,38 +1,25 @@
-import java.util.Random;
-
 public class GameBoard {
-    private GameObject[][] board; // Динамический массив игрового поля
-    private int width;
-    private int height;
-    private Random rand;
+    private GameObject[][] board;
 
     public GameBoard(int width, int height) {
-        this.width = width;
-        this.height = height;
-        this.rand = new Random();
-        initializeBoard();
+        board = new GameObject[height][width];
     }
 
-    private void initializeBoard() {
-        board = new GameObject[height][width];
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                char type = (char) ('A' + rand.nextInt(3)); // Заполнение случайными типами
-                board[i][j] = new GameObject(i, j, type);
-            }
-        }
+    public void setCell(int x, int y, GameObject obj) {
+        board[x][y] = obj;
+    }
+
+    public GameObject getCell(int x, int y) {
+        return board[x][y];
     }
 
     public void displayBoard() {
         for (GameObject[] row : board) {
             for (GameObject cell : row) {
-                System.out.print(cell.getType() + " ");
+                System.out.print(cell != null ? cell.getType() : '.');
+                System.out.print(' ');
             }
             System.out.println();
         }
-    }
-
-    public GameObject getCell(int x, int y) {
-        return board[x][y];
     }
 }
